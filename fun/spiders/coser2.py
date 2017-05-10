@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
-from scrapy.contrib.loader import ItemLoader, Identity
-from fun.items import CoserItem
+from scrapy.loader import ItemLoader
 
 
 class CoserSpider(scrapy.Spider):
@@ -12,6 +11,7 @@ class CoserSpider(scrapy.Spider):
     )
 
     def parse(self, response):
+        from spy.fun_crawler.fun.items import CoserItem
         l = ItemLoader(item=CoserItem(), response=response)
         l.add_xpath('name', "//h1[@class='js-post-title']/text()")
         l.add_xpath('info', "//div[@class='post__info']/div[@class='post__type post__info-group']/span/text()")

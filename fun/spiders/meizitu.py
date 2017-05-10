@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 from scrapy.selector import Selector
 import scrapy
-from scrapy.contrib.loader import ItemLoader, Identity
-from fun.items import MeizituItem
+from scrapy.loader import ItemLoader, Identity
 
 
 class MeizituSpider(scrapy.Spider):
@@ -27,6 +26,7 @@ class MeizituSpider(scrapy.Spider):
             yield request
 
     def parse_item(self, response):
+        from spy.fun_crawler.fun.items import MeizituItem
         l = ItemLoader(item=MeizituItem(), response=response)
         l.add_xpath('name', '//h2/a/text()')
         l.add_xpath('tags', "//div[@id='maincontent']/div[@class='postmeta  clearfix']/div[@class='metaRight']/p")

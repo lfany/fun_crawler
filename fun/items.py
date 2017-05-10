@@ -6,8 +6,8 @@
 # http://doc.scrapy.org/en/latest/topics/items.html
 
 import scrapy
-from scrapy.contrib.loader import ItemLoader
-from scrapy.contrib.loader.processor import MapCompose, TakeFirst, Join
+from scrapy.loader import ItemLoader
+from scrapy.loader.processors import MapCompose, TakeFirst, Join
 
 
 class MeizituItem(scrapy.Item):
@@ -20,9 +20,10 @@ class MeizituItem(scrapy.Item):
 
 class CoserItem(scrapy.Item):
     url = scrapy.Field()
+    post_url = scrapy.Field()
     name = scrapy.Field()
     info = scrapy.Field()
-    image_urls = scrapy.Field()
+    image_url = scrapy.Field()
     images = scrapy.Field()
 
 

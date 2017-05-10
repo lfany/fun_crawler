@@ -5,7 +5,6 @@
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: http://doc.scrapy.org/en/latest/topics/item-pipeline.html
 import requests
-from fun import settings
 import os
 
 
@@ -13,6 +12,7 @@ class ImageDownloadPipeline(object):
     def process_item(self, item, spider):
         if 'image_urls' in item:
             images = []
+            from spy.fun_crawler.fun import settings
             dir_path = '%s/%s' % (settings.IMAGES_STORE, spider.name)
 
             request_data = {'allow_redirects': False,

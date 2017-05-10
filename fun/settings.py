@@ -15,7 +15,7 @@ NEWSPIDER_MODULE = 'fun.spiders'
 
 ITEM_PIPELINES = {'fun.pipelines.ImageDownloadPipeline': 1}
 
-IMAGES_STORE = '/tmp/images'
+IMAGES_STORE = './images'
 
 
 DOWNLOAD_DELAY = 0.25    # 250 ms of delay
