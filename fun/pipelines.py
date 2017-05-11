@@ -34,7 +34,10 @@ class ImageDownloadPipeline(object):
                 os.makedirs(dir_path)
             for image_url in item['image_urls']:
                 request_data['url'] = image_url
-                us = image_url.split('/')[3:-1]
+                if spider.name == 'coser':
+                    us = image_url.split('/')[3:-1]
+                else:
+                    us = image_url.split('/')[3:]
                 image_file_name = '_'.join(us)
                 if not image_file_name.endswith('.jpg'):
                     image_file_name = image_file_name + '.jpg'

@@ -2,4 +2,4 @@
 
 from scrapy.cmdline import execute
 
-execute("scrapy crawl coser -o item.json".split())
+execute("scrapy crawl coser2 -o item.json".split())
