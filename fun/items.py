@@ -23,7 +23,8 @@ class CoserItem(scrapy.Item):
     post_url = scrapy.Field()
     name = scrapy.Field()
     info = scrapy.Field()
-    image_url = scrapy.Field()
+    image_urls = scrapy.Field()
+    image = scrapy.Field()
     images = scrapy.Field()
 
 

@@ -38,7 +38,7 @@ class CoserSpider(scrapy.Spider):
             self.item['name'] = i.xpath('//span[@class="l-left fz14 w220 cut"]/text()').extract_first()
             self.item['info'] = i.xpath('//footer[@class="bgG bottom db full ph10 text-shadow postWorkCard__ft cut"]/text()') \
                 .extract_first()
-            self.item['image_url'] = i.xpath('//div[@class="postWorkCard__img ovf"]/img/@src').extract_first()
+            self.item['image'] = i.xpath('//div[@class="postWorkCard__img ovf"]/img/@src').extract_first()
             if self.item['post_url']:
                 yield scrapy.Request(url=self.item['post_url'], callback=self.parse_post)
 
@@ -47,5 +47,5 @@ class CoserSpider(scrapy.Spider):
             # yield item
 
     def parse_post(self, response):
-        self.item['images'] = response.xpath('//img[@class="detail_std detail_clickable"]/@src').extract()
+        self.item['image_urls'] = response.xpath('//img[@class="detail_std detail_clickable"]/@src').extract()
         yield self.item
